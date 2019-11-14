@@ -1,0 +1,15 @@
+﻿{
+    "name": "ICKX.Kerosene.Runtime",
+    "references": [
+        "com.neucc.serializablecollections",
+        "ICKX.Common.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

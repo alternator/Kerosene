@@ -1,0 +1,9 @@
+{
+	"name": "jp.ickx.kerosene",
+	"version": "0.0.1",
+	"unity": "2018.3",
+	"description": "ICKX Unity Resource Management Library",
+	"dependencies": {
+		"jp.ickx.common": "0.0.1"
+	}
+}

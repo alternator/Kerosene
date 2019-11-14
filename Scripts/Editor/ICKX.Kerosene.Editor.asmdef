@@ -1,0 +1,17 @@
+﻿{
+    "name": "ICKX.Kerosene.Editor",
+    "references": [
+        "ICKX.Kerosene.Runtime",
+        "ICKX.Common.Runtime"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

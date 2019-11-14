@@ -1,0 +1,13 @@
+﻿{
+    "name": "ICKX.Kerosene.Test",
+    "references": [
+        "ICKX.Kerosene.Runtime",
+        "ICKX.Kerosene.Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
