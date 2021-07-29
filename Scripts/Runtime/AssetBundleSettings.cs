@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ICKX.Kerosene {
 
-	//[CreateAssetMenu( menuName = "ScriptableObject/AssetBundleSettings", fileName= "AssetBundleSettings.asset") ]
+	[CreateAssetMenu( menuName = "ICKX/AssetBundleSettings", fileName= "AssetBundleSettings.asset") ]
 	public class AssetBundleSettings : ScriptableObject {
 		#region Data
 		static private AssetBundleSettings m_Data;

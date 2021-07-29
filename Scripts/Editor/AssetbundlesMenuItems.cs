@@ -69,7 +69,7 @@ namespace ICKX.Kerosene {
 			BuildPipeline.BuildAssetBundles(outputPath, BuildAssetBundleOptions.IgnoreTypeTreeChanges, EditorUserBuildSettings.activeBuildTarget);
 			ContentsCatalogMaker.CreateCatalog ();
 
-			//RenameManifestFile (outputPath);
+			RenameManifestFile (outputPath);
 		}
 
 		static void RenameManifestFile (string outputPath) {

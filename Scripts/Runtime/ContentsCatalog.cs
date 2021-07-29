@@ -64,8 +64,8 @@ namespace ICKX.Kerosene {
 
 		public static void LoadCatalogFilePath (string filePath) {
 			string pkgName = System.IO.Path.GetFileName(filePath).Replace ("_Catalog.json", "");
-
-			if(!instance.m_packageList.Contains(pkgName)) {
+			Debug.Log($"LoadCatalogFilePath {filePath}");
+			if (!instance.m_packageList.Contains(pkgName)) {
 				instance.m_packageList.Add (pkgName);
 			}
 

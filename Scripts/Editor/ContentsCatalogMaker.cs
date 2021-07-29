@@ -37,7 +37,7 @@ namespace ICKX.Kerosene {
 					var assetInfo = new SerializableContentsCatalog.AssetInfo ();
 					assetInfo.assetId = guid;
 					assetInfo.bundleName = assetBundleName;
-					assetInfo.assetName = System.IO.Path.GetFileName (path);
+					assetInfo.assetName = path.ToLower();// System.IO.Path.GetFileName (path);
 
 					SerializableContentsCatalog catalog = null;
 					foreach (var pkgDir in pkgDirctorys) {

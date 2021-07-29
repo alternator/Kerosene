@@ -8,6 +8,7 @@ using UnityEditor;
 
 namespace ICKX.Kerosene {
 
+	[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
 	[System.Serializable]
 	public struct AssetID {
 
@@ -86,12 +87,15 @@ namespace ICKX.Kerosene {
 			return hashCode;
 		}
 
-		public override int GetHashCode () {
+		public override int GetHashCode ()
+		{
+			//Debug.Log(hashCode);
 			return hashCode;
 		}
 
 		public override bool Equals (object obj) {
 			AssetID assetId = (AssetID)obj;
+			//Debug.Log(assetId.ToString() + " : " + this.ToString());
 			for (int i = 0; i < 16; i++) {
 				if (this[i] != assetId[i]) {
 					return false;
@@ -100,9 +104,61 @@ namespace ICKX.Kerosene {
 			return true;
 		}
 
+		public string ToHexString ()
+		{
+			return string.Format("{0:x2}{1:x2}{2:x2}{3:x2}{4:x2}{5:x2}{6:x2}{7:x2}{8:x2}{9:x2}{10:x2}{11:x2}{12:x2}{13:x2}{14:x2}{15:x2}"
+				, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15);
+
+			//return b0 + "" + b1 + "" + b2 + "" + b3 + "" + b4 + "" + b5 + "" + b6 + "" + b7
+			//		+ "" + b8 + "" + b9 + "" + b10 + "" + b11 + "" + b12 + "" + b13 + "" + b14 + "" + b15;
+		}
+
 		public override string ToString () {
-			return b0 + "" + b1 + "" + b2 + "" + b3 + "" + b4 + "" + b5 + "" + b6 + "" + b7
-					+ "" + b8 + "" + b9 + "" + b10 + "" + b11 + "" + b12 + "" + b13 + "" + b14 + "" + b15;
+			return ToHexString();
+		}
+
+		public unsafe bool WriteByteArray(byte* array)
+		{
+			array[0] = b0;
+			array[1] = b1;
+			array[2] = b2;
+			array[3] = b3;
+			array[4] = b4;
+			array[5] = b5;
+			array[6] = b6;
+			array[7] = b7;
+			array[8] = b8;
+			array[9] = b9;
+			array[10] = b10;
+			array[11] = b11;
+			array[12] = b12;
+			array[13] = b13;
+			array[14] = b14;
+			array[15] = b15;
+			hashCode = ComputeHashCode(ref this);
+			return true;
+		}
+
+		public unsafe bool ReadByteArray(byte* array)
+		{
+			b0 = array[0];
+			b1 = array[1];
+			b2 = array[2];
+			b3 = array[3];
+			b4 = array[4];
+			b5 = array[5];
+			b6 = array[6];
+			b7 = array[7];
+			b8 = array[8];
+			b9 = array[9];
+			b10 = array[10];
+			b11 = array[11];
+			b12 = array[12];
+			b13 = array[13];
+			b14 = array[14];
+			b15 = array[15];
+			hashCode = ComputeHashCode(ref this);
+			return true;
 		}
 
 		private const string LowerhexChars = "0123456789abcdef";

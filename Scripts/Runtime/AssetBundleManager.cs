@@ -162,7 +162,7 @@ namespace ICKX.Kerosene {
 
 		static List<string> m_ActiveGroupNames = new List<string>();
 		//static AssetBundleManifest m_previousAssetBundleManifest = null;
-		static Dictionary<string, AssetBundleManifest> m_AddonAssetBundleManifestTable;
+		static Dictionary<string, AssetBundleManifest> m_AddonAssetBundleManifestTable = null;
 
 		static AssetBundleManager manager = null;
 
@@ -388,7 +388,9 @@ namespace ICKX.Kerosene {
 			//LoadFromFileでManifestをロードする.
 			if (!File.Exists(filePath)) {
 				Log(LogType.Error, "Not Found AssetBundleManifest " + filePath);
-			} else {
+			} else
+			{
+				Log(LogType.Info, "Load AssetBundleManifest " + filePath);
 				//LoadFromFileを使ってロード
 				var createRequest = AssetBundle.LoadFromFileAsync(filePath);
 				yield return createRequest;

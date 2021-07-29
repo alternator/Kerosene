@@ -10,8 +10,8 @@ namespace ICKX.Kerosene {
 	public class FileDownloadHandler : DownloadHandlerScript {
 
 		FileStream fs;
-		public int offset { get; private set; }
-		public int length { get; private set; }
+		public ulong offset { get; private set; }
+		public ulong length { get; private set; }
 
 		AssetBundleManager.DownloadBuffer downloadBuffer;
 
@@ -28,7 +28,7 @@ namespace ICKX.Kerosene {
 
 		protected override bool ReceiveData(byte[] data, int dataLength) {
 			fs.Write(data, 0, dataLength);
-			offset += dataLength;
+			offset += (ulong)dataLength;
 			return true;
 		}
 
@@ -39,7 +39,7 @@ namespace ICKX.Kerosene {
 			downloadBuffer = null;
 		}
 
-		protected override void ReceiveContentLength(int contentLength) {
+		protected override void ReceiveContentLengthHeader(ulong contentLength) {
 			length = contentLength;
 		}
 
